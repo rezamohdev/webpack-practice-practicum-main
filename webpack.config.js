@@ -2,10 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // connect plugin
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // connect plugin 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-import "./styles/index.css"; // add import of the main stylesheets file
 
-
-// webpack.config.js
 module.exports =
 {
     devtool: "inline-source-map",
@@ -62,8 +59,11 @@ module.exports =
                             },
                         ]
                 },
+                {
+                    // add the rule for processing files
+                    test: /\.(png|svg|jpg|jpeg|gif|woff(2)?|eot|ttf|otf)$/,
+                    type: "asset/resource"
+                },
             ]
     }
 }
-
-// module.exports is the syntax for export in Node.js
